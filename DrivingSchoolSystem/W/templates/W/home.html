@@ -1,0 +1,15 @@
+{% include 'W/navbar.html' %}
+<h1>Welcome to our Driving school</h1>
+{% if user.is_authenticated %}
+    <h2>Current User: {{ user.username }}</h2>
+    {% else %}
+    <h2>You are not logged in.</h2>
+    {% endif %}
+<a href="#" onClick="document.getElementById('logoutform').submit()"><button type="button">Logout</button></a>
+        <form id="logoutform" method="POST" action="{% url 'Logout' %}">
+            {% csrf_token %}
+            <input type="hidden">
+        </form>
+{% block content %}
+    <title>Driving School Management System</title>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% include 'W/navbar.html' %}
+<h1>Add Student</h1>
+<form method="post" action="{% url 'Register' %}">
+    {% csrf_token %}
+
+    {% if form.errors %}
+    <p>There are errors in the form!</p>
+    {% endif %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Register">
+</form>
+{% block content %}
+    <title>Add Student</title>
+{% endblock %}
+
