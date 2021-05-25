@@ -1,8 +1,186 @@
 {% include 'W/navbar.html' %}
-<h1>Welcome Student</h1>
+<center>
+    <h2>Welcome Student</h2>
+    {% if user.is_authenticated %}
+    <h2>Current User: {{ user.username }}</h2>
+    {% else %}
+    <h2>You are not logged in.</h2>
+    {% endif %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <div class="w3-container">
+            <input type="button" value="Go back!" onclick="history.back()" class="w3-button w3-blue w3-round-xlarge">
+            <a href="{% url 'payment' %}" class="w3-button w3-blue w3-round-xlarge">Make Payments</a>
+            <a href="{% url 'results' %}" class="w3-button w3-blue w3-round-xlarge">Check Results</a>
+            <a href="{% url 'Profile' %}" class="w3-button w3-blue w3-round-xlarge">View Profile</a>
+            <a href="{% url 'payment' %}" class="w3-button w3-blue w3-round-xlarge">Change Password</a>
+        </div>
+</center>
+<center>
+<h2>Time Table</h2>
+<TABLE class="myTimetable">
+  <THEAD>
+    <TR>
+      <TH></TH>
+      <TH>Monday</TH>
+      <TH>Wednesday</TH>
+      <TH>Thursday</TH>
+    </TR>
+  </THEAD>
+  <TBODY>
+    <TR>
+      <TD>08:00-12:30</TD>
+      <TD>
+        <div class="subject">Course1</div>
+        <div class="room">Practical Road Test</div>
+      </TD>
+      <TD>
+        <div class="subject">Course2</div>
+        <div class="room">Theory Test</div>
+      </TD>
+       <TD>
+         <div class="subject">Course1</div>
+        <div class="room">Practical Road Test</div>
+      </TD>
+    </TR>
+    <TR>
+      <TD>13:30-15:00</TD>
+      <TD>
+        <div class="subject">Course2</div>
+        <div class="room">Theory Test</div>
+      </TD>
+      <TD>
+        <div class="subject">Course1</div>
+        <div class="room">Practical Road Test</div>
+      </TD>
+      <TD>
+        <div class="subject">Course2</div>
+        <div class="room">Theory Test</div>
+      </TD>
+    </TR>
+   </TBODY>
+  </TABLE>
+</center>
+<style>
+H1 {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.myTimetable {
+  width:50%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.myTimetable THEAD{
+  color: Black;
+}
+
+.myTimetable TBODY {
+  background-color: #2196f3;
+}
+
+.myTimetable TD {
+  border: 1px solid black;
+  padding: 6px;
+  text-align: center;
+}
+.myTimetable TBODY TR TD:first-child {
+  background-color: #2196f3;
+  font-weight: bold;
+}
+
+.break, .lunch {
+  background-color: #FF0066 !important;
+  font-style: italic;
+}
+
+.subject {
+  font-size: 12pt;
+  margin-bottom:4px;
+}
+
+.room {
+  font-size: 10pt;
+  font-style: italic;
+}
 
 
+</style>
+<footer>
+    <section id="lab_social_icon_footer">
+<!-- Include Font Awesome Stylesheet in Header -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<center>
+<div class="container">
+        <div class="text-center center-block">
+            <h2>For More Infomation Contact Us!</h2>
+            <h5>Copyrights @ Thabang,Tefo,Obakeng and Thapelo</h5>
+                <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="mailto:obkotbusitse@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+    </div>
+</div>
+</center>
+</section>
+    <style>
+        #lab_social_icon_footer {
+  padding: 40px 0;
+  background-color: none;
+}
+
+#lab_social_icon_footer a {
+  color: #333;
+}
+
+#lab_social_icon_footer .social:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+#lab_social_icon_footer .social {
+  -webkit-transform: scale(0.8);
+  /* Browser Variations: */
+
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+/*
+    Multicoloured Hover Variations
+*/
+
+#lab_social_icon_footer #social-fb:hover {
+  color: #3B5998;
+}
+
+#lab_social_icon_footer #social-tw:hover {
+  color: #4099FF;
+}
+
+#lab_social_icon_footer #social-gp:hover {
+  color: #d34836;
+}
+
+#lab_social_icon_footer #social-em:hover {
+  color: #f39c12;
+}
+    </style>
+</footer>
 {% block content %}
     <title>Driving School Management System</title>
-
 {% endblock %}
+<center>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<a href="#" onClick="document.getElementById('logoutform').submit()" type="button" class="w3-button w3-blue w3-round-xlarge">Logout</a>
+        <form id="logoutform" method="POST" action="{% url 'Logout' %}">
+            {% csrf_token %}
+            <input type="hidden">
+        </form>
+</center>

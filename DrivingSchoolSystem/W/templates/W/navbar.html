@@ -95,13 +95,12 @@ body {
 </style>
 </head>
 <body>
-
 <div class="topnav">
   <a class="active" href="{% url 'home' %}">Home</a>
   <a class="active" href="{% url 'login' %}">Login</a>
-  <a class="active" href="{% url 'payment' %}">Payment</a>
-  <a class="active" href="{% url 'addstudent' %}">Add Student</a>
-  <a class="active" href="{% url 'all_students' %}">all_students</a>
+  <a class="active" href="{% url 'Dashboard' %}">Admin Dashboard</a>
+  <a class="active" href="{% url 'Student_Dashboard' %}">Student Dashboard</a>
+   <a class="active" href="{% url 'StaffDashboard' %}">Staff Dashboard</a>
   <div class="search-container">
     <form action="/action_page.php">
       <input type="text" placeholder="Search.." name="search">
@@ -111,6 +110,6 @@ body {
 </div>
 <div style="padding-left:16px">
 </div>
-
 </body>
 </html>
+

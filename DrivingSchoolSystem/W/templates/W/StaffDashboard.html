@@ -1,0 +1,117 @@
+{% include 'W/navbar.html' %}
+<title>Staff Dashboard</title>
+    <center>
+        <h2>Welcome to the Dashboard</h2>
+        {% if user.is_authenticated %}
+    <h2>Current User: {{ user.username }}</h2>
+    {% else %}
+    <h2>You are not logged in.</h2>
+    {% endif %}
+    </center>
+<center>
+    <center>
+        <div class="w3-container">
+            <a href="{% url 'updatestudentresults' %}" class="w3-button w3-blue w3-round-xlarge">Student Results Update</a>
+        </div>
+</center>
+<h2>Time Table</h2>
+<TABLE class="myTimetable">
+  <THEAD>
+    <TR>
+      <TH>Time</TH>
+      <TH>Monday</TH>
+      <TH>Wednesday</TH>
+      <TH>Thursday</TH>
+    </TR>
+  </THEAD>
+  <TBODY>
+    <TR>
+      <TD>08:00-12:30</TD>
+      <TD>
+        <div class="subject">Course1</div>
+        <div class="room">Practical Road Test</div>
+      </TD>
+      <TD>
+        <div class="subject">Course2</div>
+        <div class="room">Theory Test</div>
+      </TD>
+       <TD>
+         <div class="subject">Course1</div>
+        <div class="room">Practical Road Test</div>
+      </TD>
+    </TR>
+    <TR>
+      <TD>13:30-15:00</TD>
+      <TD>
+        <div class="subject">Course2</div>
+        <div class="room">Theory Test</div>
+      </TD>
+      <TD>
+        <div class="subject">Course1</div>
+        <div class="room">Practical Road Test</div>
+      </TD>
+      <TD>
+        <div class="subject">Course2</div>
+        <div class="room">Theory Test</div>
+      </TD>
+    </TR>
+   </TBODY>
+  </TABLE>
+</center>
+<style>
+H1 {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.myTimetable {
+  width:60%;
+  table-layout: fixed;
+  border-radius: 25px;
+}
+
+.myTimetable THEAD{
+  color: Black;
+}
+
+.myTimetable TBODY {
+  background-color: #2196f3;
+}
+
+.myTimetable TD {
+  border: 1px solid black;
+  padding: 6px;
+  text-align: center;
+}
+.myTimetable TBODY TR TD:first-child {
+  background-color: #2196f3;
+  font-weight: bold;
+}
+
+.break, .lunch {
+  background-color: #FF0066 !important;
+  font-style: italic;
+}
+
+.subject {
+  font-size: 12pt;
+  margin-bottom:4px;
+}
+
+.room {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+</style>
+
+<br>
+<center>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<a href="#" onClick="document.getElementById('logoutform').submit()" type="button" class="w3-button w3-blue w3-round-xlarge">Logout</a>
+        <form id="logoutform" method="POST" action="{% url 'Logout' %}">
+            {% csrf_token %}
+            <input type="hidden">
+        </form>
+</center>

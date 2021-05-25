@@ -1,22 +1,65 @@
 {% include 'W/navbar.html' %}
 <center>
-    <h1>Welcome to our Driving school</h1>
-
-{% if user.is_authenticated %}
-    <h2>Current User: {{ user.username }}</h2>
-    {% else %}
-    <h2>You are not logged in.</h2>
-    {% endif %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<a href="#" onClick="document.getElementById('logoutform').submit()" type="button" class="w3-button w3-blue w3-round-xlarge">Logout</a>
-        <form id="logoutform" method="POST" action="{% url 'Logout' %}">
-            {% csrf_token %}
-            <input type="hidden">
-        </form>
-</center>
+    <h1>Check Your Results {{ user.username }}</h1>
+            {% for student in myresults %}
+    {% endfor %}
 {% block content %}
-    <title>Driving School Management System</title>
+    </center>
+<center>
+<table class="styled-table">
+    <thead>
+ <tr>
+             {% for student in myresults %}
+             <th>Name</th>
+             <th>Course1</th>
+             <th>Course2</th>
+             <th>Results1</th>
+             <th>Results2</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{student}}</td>
+            <td>{{ student.course1 }}</td>
+             <td>{{ student.course2 }}</td>
+             <td>{{ student.result1 }}</td>
+             <td>{{ student.result2 }}</td>
+         </tr>
+        <!-- and so on... -->
+    </tbody>
+    {% endfor %}
+</table>
+</center>
+ <style>
+     .styled-table thead tr {
+    background-color: #2196f3;
+    color: #ffffff;
+    text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+     .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            }
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #2196f3;
+}
+    </style>
+    <title>Check Your Results</title>
 {% endblock %}
 <footer>
     <section id="lab_social_icon_footer">

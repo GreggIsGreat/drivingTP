@@ -1,17 +1,26 @@
 {% include 'W/navbar.html' %}
-<h1>Add Student</h1>
-<form method="post" action="{% url 'Register' %}">
-    {% csrf_token %}
+   <title>Add Student</title>
 
-    {% if form.errors %}
-    <p>There are errors in the form!</p>
-    {% endif %}
-
-    {{ form.as_p }}
-
-    <input type="submit" value="Register">
-</form>
+    {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }} Please Add Students Here!!</h1>
+        {% else %}
+        <h2>You are not logged in.</h2>
+        {% endif %}
+        {% if submitted %}
+                Your Student is in!!
+        {% else %}
+<center>
+    <form action = "" method=POST>
+        {% csrf_token %}
+        {{ form.as_p }}
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <input type="submit" value="Submit">
+    </form>
+        {% endif  %}
+</center>
 {% block content %}
     <title>Add Student</title>
 {% endblock %}
+
 

@@ -1,0 +1,18 @@
+{% include 'W/navbar.html' %}
+<center>
+    <h1>Update Student marks</h1>
+
+
+ <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <button type='submit'>Update</button>
+ </form>
+</center>
+<title>Update Student marks</title>
+{% block content %}
+
+
+{% endblock %}

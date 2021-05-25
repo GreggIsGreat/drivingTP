@@ -1,0 +1,40 @@
+{% include 'W/navbar.html' %}
+<title>User Profile</title>
+<center>
+{% if user.is_authenticated %}
+    <h2>Current User: {{ user.username }}</h2>
+    {% else %}
+    <h2>You are not logged in.</h2>
+    {% endif %}
+    <input type="button" value="Go back!" onclick="history.back()" class="w3-button w3-blue w3-round-xlarge">
+      <a href="{% url 'editProfile' %}" class="w3-button w3-blue w3-round-xlarge">Update Profile</a>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                <a href="#" onClick="document.getElementById('logoutform').submit()" type="button" class="w3-button w3-blue w3-round-xlarge">Logout</a>
+                <form id="logoutform" method="POST" action="{% url 'Logout' %}">
+                    {% csrf_token %}
+                    <input type="hidden">
+                </form>
+</center>
+{% for student in UserProfile %}
+    <strong>{{ student }}</strong>
+    <ul>
+        <li><strong>Omang Id</strong>:{{ student.omang_id }}</li>
+        <li><strong>Email</strong>:{{ student.email }}</li>
+        <li><strong>Gender</strong>:{{ student.gender }}</li>
+        <li><strong>Phonenumber</strong>:{{ student.phonenumber }}</li>
+        <li><strong>Course1</strong>:{{ student.course1 }}</li>
+        <li><strong>Course2</strong>:{{ student.course2 }}</li>
+        <li><strong>Result1</strong>:{{ student.result1 }}</li>
+        <li><strong>Result2</strong>:{{ student.result2 }}</li>
+    </ul>
+    {% endfor %}
+       <form method="post">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                <p>There are errors in the form!</p>
+                {% endif %}
+
+            {{ form.as_ul }}
+            </form>
