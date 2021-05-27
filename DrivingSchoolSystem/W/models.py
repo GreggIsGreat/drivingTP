@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -14,11 +15,11 @@ class Admin(models.Model):
 
 
 class Student(models.Model):
-    name = models.CharField(max_length=20, blank=True)
+    name = models.CharField(max_length=20, blank=True, primary_key=True)
     omang_id = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=254, blank=True)
-    male = 'ml'
-    female = 'fml'
+    male = 'male'
+    female = 'female'
 
     gender_CHOICES = [
         (male, 'male'),
@@ -54,10 +55,6 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
-
-
-student = models.ForeignKey(Student, null=True, on_delete=models.SET_NULL)
-
 
 class Staff(models.Model):
     name = models.CharField(max_length=20, blank=True)

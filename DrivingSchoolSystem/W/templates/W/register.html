@@ -1,20 +1,26 @@
 {% include 'W/navbar.html' %}
-        <h1>Register!</h1>
+{% load crispy_forms_tags %}
+<div class="container">
+    <center>
+    <h1>Register Yourself!</h1>
+    </center>
             <form method="post" action="{% url 'Register' %}">
                 {% csrf_token %}
 
                 {% if form.errors %}
                 <p>There are errors in the form!</p>
                 {% endif %}
-
-            {{ form.as_ul }}
-
+<table>
+            {{ form|crispy }}
+</table>
             <input type="submit" value="Register">
             </form>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</div>
 {% block content %}
     <title>Register</title>
 {% endblock %}
+
 <footer>
     <section id="lab_social_icon_footer">
 <!-- Include Font Awesome Stylesheet in Header -->

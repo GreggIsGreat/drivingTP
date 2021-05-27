@@ -17,6 +17,7 @@
                 </form>
 </center>
 {% for student in UserProfile %}
+<div class="container">
     <strong>{{ student }}</strong>
     <ul>
         <li><strong>Omang Id</strong>:{{ student.omang_id }}</li>
@@ -28,6 +29,7 @@
         <li><strong>Result1</strong>:{{ student.result1 }}</li>
         <li><strong>Result2</strong>:{{ student.result2 }}</li>
     </ul>
+</div>
     {% endfor %}
        <form method="post">
                 {% csrf_token %}
@@ -36,5 +38,5 @@
                 <p>There are errors in the form!</p>
                 {% endif %}
 
-            {{ form.as_ul }}
+            {{ form.as_p }}
             </form>
