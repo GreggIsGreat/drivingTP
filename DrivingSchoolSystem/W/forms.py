@@ -35,13 +35,10 @@ class Studentform(ModelForm):
     class Meta:
         model = Student
         fields = ('name',
-                  'omang_id',
-                  'email',
-                  'gender',
-                  'phonenumber',
                   'DateOfBirth',
                   'course1',
                   'course2',
+                  'gender',
                   'Purpose')
 
 
@@ -61,3 +58,9 @@ class UpdateProfileForm(ModelForm):
         fields = ('name',
                   'email',
                   'Purpose',)
+
+class PasswordChangeForm(ModelForm):
+    class Meta:
+        model = Student
+        fields = ('name',
+                  'email',)

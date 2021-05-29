@@ -1,5 +1,6 @@
 {% include 'W/navbar.html' %}
    <title>Add Student</title>
+{% load crispy_forms_tags %}
 
     {% if user.is_authenticated %}
         <h1>Welcome {{ user.username }} Please Add Students Here!!</h1>
@@ -12,7 +13,7 @@
 <center>
     <form action = "" method=POST>
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
             <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <input type="submit" value="Submit">

@@ -1,25 +1,24 @@
 {% include 'W/navbar.html' %}
+  <title>Driving School Management System</title>
 <center>
-    <h1>Welcome to our Driving school</h1>
-
+    <div class="container p-3 my-3 bg-primary text-white">
+    <h1>Welcome To Our Driving School</h1>
+    </div>
 {% if user.is_authenticated %}
     <h2>Current User: {{ user.username }}</h2>
     {% else %}
     <h2>You are not logged in.</h2>
     {% endif %}
-    <h1>hi</h1>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<a href="#" onClick="document.getElementById('logoutform').submit()" type="button" class="w3-button w3-blue w3-round-xlarge">Logout</a>
-        <form id="logoutform" method="POST" action="{% url 'Logout' %}">
-            {% csrf_token %}
-            <input type="hidden">
-        </form>
 </center>
-
 {% block content %}
-    <title>Driving School Management System</title>
 {% endblock %}
+<center>
+<body>
+<h3>
+    <a href="{% url 'login' %}" class="w3-button w3-blue w3-round-xlarge">Login</a>
+</h3>
+</body>
+</center>
 <footer>
     <section id="lab_social_icon_footer">
 <!-- Include Font Awesome Stylesheet in Header -->
@@ -34,6 +33,13 @@
 	            <a href="mailto:Rttteddy@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
     </div>
 </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<a href="#" onClick="document.getElementById('logoutform').submit()" type="button" class="w3-button w3-blue w3-round-xlarge">Logout</a>
+        <form id="logoutform" method="POST" action="{% url 'Logout' %}">
+            {% csrf_token %}
+            <input type="hidden">
+        </form>
 </center>
 </section>
     <style>

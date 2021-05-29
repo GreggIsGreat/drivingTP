@@ -19,5 +19,7 @@ urlpatterns = [
     path('updatestudentresults/', views.updatestudentresults, name='updatestudentresults'),
     path('editProfile/', views.editProfile, name='editProfile'),
     path('registercourses/', views.registercourses, name='registercourses'),
+    path('allstudents/', views.allstudents, name='allstudents'),
+    path('changepasswords/', views.changepasswords, name='changepasswords'),
 ]
 urlpatterns += staticfiles_urlpatterns()

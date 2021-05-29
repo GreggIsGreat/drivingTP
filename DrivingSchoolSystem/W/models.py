@@ -35,7 +35,7 @@ class Student(models.Model):
     course2 = models.CharField(max_length=20, blank=True)
     result1 = models.CharField(max_length=20, blank=True)
     result2 = models.CharField(max_length=20, blank=True)
-    DateOfBirth = models.DateField(max_length=20, null=True)
+    DateOfBirth = models.DateField(max_length=20, blank=True)
     New = 'NW'
     Renewal = 'RL'
 

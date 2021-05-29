@@ -1,11 +1,12 @@
 {% include 'W/navbar.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 <center><h1>Edit Profile</h1></center>
 <title>Update Profile</title>
 <center>
     <form action = "" method=POST>
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy}}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <input type="submit" class="w3-button w3-blue w3-round-xlarge"value="Update">

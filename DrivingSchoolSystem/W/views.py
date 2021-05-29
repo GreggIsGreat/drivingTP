@@ -1,10 +1,10 @@
+from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect
 from django.shortcuts import render
-
 from .decorators import allowed_users
 from .forms import registerForm, Studentform, ResultForm, UpdateProfileForm
 from .models import Student
@@ -114,6 +114,11 @@ def registercourses(request):
     return render(request, 'W/registercourses.html', {'form': form, 'submitted': submitted})
 
 
+def allstudents(request):
+    allstudents = Student.objects.all()
+    return render(request, 'W/allstudents.html', {'allstudents': allstudents})
+
+
 @login_required()
 def addstudent(request):
     submitted = False
@@ -134,16 +139,13 @@ def addstudent(request):
 @login_required()
 @allowed_users(allowed_roles=['Student', 'Admin'])
 def editProfile(request):
-    if request.method == 'POST':
-        form = UpdateProfileForm(request.POST, instance=request.user)
+    form = UpdateProfileForm(data=request.POST, instance=request.user)
+    if form.is_valid():
+        form.save()
+        return redirect('Profile')
 
-        if form.is_valid():
-            form.save()
-            return redirect('Profile')
-    else:
-        form = UpdateProfileForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'W/editProfile.html', args)
+    context = {'form': form}
+    return render(request, 'W/editProfile.html', context)
 
 
 @login_required
@@ -157,3 +159,7 @@ def updatestudentresults(request):
         form = ResultForm(instance=request.user)
         args = {'form': form}
         return render(request, 'W/updatestudentresults.html', args)
+
+
+def changepasswords(request):
+    return render(request, 'W/changepasswords.html', {'changepasswords': changepasswords})
