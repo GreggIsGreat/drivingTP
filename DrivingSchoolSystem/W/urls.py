@@ -21,5 +21,6 @@ urlpatterns = [
     path('registercourses/', views.registercourses, name='registercourses'),
     path('allstudents/', views.allstudents, name='allstudents'),
     path('changepasswords/', views.changepasswords, name='changepasswords'),
+    path('searchstd/', views.searchstd, name='searchstd'),
 ]
 urlpatterns += staticfiles_urlpatterns()

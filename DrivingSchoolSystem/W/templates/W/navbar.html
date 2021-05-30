@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <style>
 * {box-sizing: border-box;}
 
@@ -102,15 +102,17 @@ body {
   <a class="active" href="{% url 'Dashboard' %}">Admin Dashboard</a>
   <a class="active" href="{% url 'Student_Dashboard' %}">Student Dashboard</a>
    <a class="active" href="{% url 'StaffDashboard' %}">Staff Dashboard</a>
+
+
+
   <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
+    <form class="d-flex" method="POST" action="{% url 'searchstd' %}">
+      {% csrf_token %}
+      <input type="search" class="form-control me-2" placeholder="Search for Students..." name="search">
+      <button type="submit" class="btn btn-outline-secondary">Search</button>
     </form>
   </div>
-</div>
-<div style="padding-left:16px">
-</div>
+  </div>
 </body>
 </html>
 

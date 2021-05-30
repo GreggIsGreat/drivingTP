@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-CRISPY_TEMPLATE_PACK = 'boostrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +50,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 ROOT_URLCONF = 'DrivingSchoolSystem.urls'
 
@@ -128,5 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'Login'
-CRISPY_TEMPLATE_PACK = 'uni_form'
-LOGIN_URL ='Login'
+LOGIN_URL = 'Login'

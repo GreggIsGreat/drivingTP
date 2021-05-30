@@ -35,6 +35,9 @@ class Studentform(ModelForm):
     class Meta:
         model = Student
         fields = ('name',
+                  'omang_id',
+                  'phonenumber',
+                  'email',
                   'DateOfBirth',
                   'course1',
                   'course2',

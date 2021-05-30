@@ -6,3 +6,4 @@ admin.site.register(Admin)
 admin.site.register(Staff)
 admin.site.register(Student)
 
+

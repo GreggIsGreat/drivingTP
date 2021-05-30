@@ -9,13 +9,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <div class="w3-container">
-            <input type="button" value="Go back!" onclick="history.back()" class="w3-button w3-blue w3-round-xlarge">
-            <a href="{% url 'payment' %}" class="w3-button w3-blue w3-round-xlarge">Make Payments</a>
-            <a href="{% url 'results' %}" class="w3-button w3-blue w3-round-xlarge">Check Results</a>
-            <a href="{% url 'Profile' %}" class="w3-button w3-blue w3-round-xlarge">View Profile</a>
-            <a href="{% url 'changepasswords' %}" class="w3-button w3-blue w3-round-xlarge">Change Password</a>
-            <a href="{% url 'registercourses' %}" class="w3-button w3-blue w3-round-xlarge">Register For Courses</a>
+        <div class="btn-group">
+            <input type="button" value="Go back!" onclick="history.back()" class="btn btn-primary">
+            <a href="{% url 'payment' %}" class="btn btn-primary">Make Payments</a>
+            <a href="{% url 'results' %}" class="btn btn-primary">Check Results</a>
+            <a href="{% url 'Profile' %}" class="btn btn-primary">View Profile</a>
+            <a href="{% url 'changepasswords' %}" class="btn btn-primary">Change Password</a>
+            <a href="{% url 'registercourses' %}" class="btn btn-primary">Register For Courses</a>
         </div>
 </center>
 <center>

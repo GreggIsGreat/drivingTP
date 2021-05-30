@@ -1,17 +1,17 @@
 {% include 'W/navbar.html' %}
 {% load crispy_forms_tags %}
+
 <center>
     <h1>Update Student marks</h1>
-
-
- <form action="" method="POST">
-        {{ form|crispy }}
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-            <button type='submit' class="w3-button w3-blue w3-round-xlarge">Update</button>
- </form>
+         <form action="" method="POST">
+             {% csrf_token %}
+             {{ form|crispy }}
+             <meta name="viewport" content="width=device-width, initial-scale=1">
+             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+             <button type='submit' class="w3-button w3-blue w3-round-xlarge">Update</button>
+         </form>
 </center>
-<title>Update Student marks</title>
+    <title>Update Student marks</title>
 {% block content %}
 
 

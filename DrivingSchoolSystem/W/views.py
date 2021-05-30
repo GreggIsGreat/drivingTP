@@ -92,12 +92,14 @@ def StaffDashboard(request):
 
 
 @login_required()
+@allowed_users(allowed_roles=['Student','Admin'])
 def Profile(request):
     UserProfile = Student.objects.filter(name=request.user)
     return render(request, 'W/Profile.html', {'UserProfile': UserProfile})
 
 
 @login_required()
+@allowed_users(allowed_roles=['Student'])
 def registercourses(request):
     submitted = False
     if request.method == "POST":
@@ -105,7 +107,7 @@ def registercourses(request):
         if form.is_valid():
 
             form.save()
-            return redirect('/registercourses? submitted=True')
+            return redirect('/Profile? submitted=True')
         else:
             form = Studentform
             if 'sumbitted' in request.GET:
@@ -114,12 +116,15 @@ def registercourses(request):
     return render(request, 'W/registercourses.html', {'form': form, 'submitted': submitted})
 
 
+@login_required()
+@allowed_users(allowed_roles=['Admin'])
 def allstudents(request):
     allstudents = Student.objects.all()
     return render(request, 'W/allstudents.html', {'allstudents': allstudents})
 
 
 @login_required()
+@allowed_users(allowed_roles=['Admin'])
 def addstudent(request):
     submitted = False
     if request.method == "POST":
@@ -136,6 +141,7 @@ def addstudent(request):
     return render(request, 'W/addstudent.html', {'form': form, 'submitted': submitted})
 
 
+
 @login_required()
 @allowed_users(allowed_roles=['Student', 'Admin'])
 def editProfile(request):
@@ -148,7 +154,8 @@ def editProfile(request):
     return render(request, 'W/editProfile.html', context)
 
 
-@login_required
+@login_required()
+@allowed_users(allowed_roles=['Admin', 'Staff'])
 def updatestudentresults(request):
     if request.method == 'POST':
         form = ResultForm(request.POST, instance=request.user)
@@ -161,5 +168,17 @@ def updatestudentresults(request):
         return render(request, 'W/updatestudentresults.html', args)
 
 
+@login_required()
+@allowed_users(allowed_roles=['Admin', 'Student'])
 def changepasswords(request):
     return render(request, 'W/changepasswords.html', {'changepasswords': changepasswords})
+
+@login_required()
+def searchstd(request):
+    if request.method == "POST":
+        search = request.POST['search']
+        std = Student.objects.filter(name__contains=search)
+        return render(request, 'W/searchstd.html',
+                      {'search': search, 'std': std})
+    else:
+        return render(request,'W/searchstd.html')

@@ -1,25 +1,27 @@
 {% include 'W/navbar.html' %}
    <title>Add Student</title>
 {% load crispy_forms_tags %}
-
+<center>
     {% if user.is_authenticated %}
-        <h1>Welcome {{ user.username }} Please Add Students Here!!</h1>
+        <h1>Welcome {{ user.username }}</h1>
+           <h1> Please Add Students Here!!</h1>
         {% else %}
         <h2>You are not logged in.</h2>
         {% endif %}
         {% if submitted %}
                 Your Student is in!!
         {% else %}
-<center>
+</center>
+<div class="container">
     <form action = "" method=POST>
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ form|crispy}}
             <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <input type="submit" value="Submit">
+        <input type="submit" class="w3-button w3-blue w3-round-xlarge" value="Submit">
     </form>
         {% endif  %}
-</center>
+</div>
 {% block content %}
     <title>Add Student</title>
 {% endblock %}

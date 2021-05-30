@@ -9,12 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <center>
-        <div class="w3-container">
-            <input type="button" value="Go back!" onclick="history.back()" class="w3-button w3-blue w3-round-xlarge">
-            <a href="{% url 'payment' %}" class="w3-button w3-blue w3-round-xlarge">Process Payments</a>
-            <a href="{% url 'addstudent' %}" class="w3-button w3-blue w3-round-xlarge">Add Student</a>
-            <a href="{% url 'Profile' %}" class="w3-button w3-blue w3-round-xlarge">Delete Student</a>
-            <a href="{% url 'allstudents' %}" class="w3-button w3-blue w3-round-xlarge">All Students In The System</a>
+        <div class="btn-group">
+            <input type="button" value="Go back!" onclick="history.back()" class="btn btn-primary">
+            <a href="{% url 'payment' %}" class="btn btn-primary">Process Payments</a>
+            <a href="{% url 'addstudent' %}" class="btn btn-primary">Add Student</a>
+            <a href="{% url 'Profile' %}" class="btn btn-primary">Delete Student</a>
+            <a href="{% url 'allstudents' %}" class="btn btn-primary" >All Students In The System</a>
 
         </div>
 </center>
